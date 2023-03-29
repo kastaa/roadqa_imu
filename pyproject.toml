@@ -14,3 +14,6 @@ dependencies = [
 
 [tool.setuptools]
 packages = ["roadqa_imu"]
+
+[project.scripts]
+roadqa_process = "roadqa_imu.main:main"
