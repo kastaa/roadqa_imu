@@ -7,8 +7,9 @@ from roadqa_imu.roadqa_map import RoadQAMap
 from roadqa_imu.utils import open_csv
 
 
-def main(data_path):
-    data_buffer = open_csv(data_path)
+def main():
+    args = parse_args()
+    data_buffer = open_csv(args.data_path)
     imu_gps_data = ImuGpsData.from_csv(data_buffer)
     
     imu_gps_data.process()
@@ -26,6 +27,4 @@ def parse_args():
     return parser.parse_args()
 
 if __name__ == "__main__":
-    args = parse_args()
-    print(args.data_path)
-    main(args.data_path)
+    main()
