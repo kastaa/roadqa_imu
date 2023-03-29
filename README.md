@@ -33,9 +33,22 @@ Figure 1 below depict a picture of the assembly of the measuring device.
 The `.ino` file can be find in the `arduino` folder. 
 
 ### Arduino library dependancy
+All the library below can be found in the library manager of arduino except MPU9255
 - ezButton
 - NeoGPS
 - NeoSWSerial
 - SD
-- MPU9255
+- [MPU9255](https://github.com/Bill2462/MPU9255-Arduino-Library)
 
+## Process data
+You can install the package with a simple 
+```
+$ pip install . 
+```
+
+Then you should be able to run the process entrypoint 
+```
+roadqa_process <path-to-data>
+```
+
+There is a sample data file available `sample` folder. 
