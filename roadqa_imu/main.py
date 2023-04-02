@@ -19,9 +19,10 @@ def main():
     map = road_map.generate_map()
     
     if args.outpath is None:
-        output_file = args.outpath
-    else:
         output_file = "map_result.html"
+    else:
+        output_file = str(args.outpath / "map_result.html")
+
     map.save(output_file)
     webbrowser.open(output_file, new=1)
 
