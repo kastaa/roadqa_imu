@@ -31,8 +31,8 @@ def parse_args():
     parser.add_argument("data_path", type=Path, help="Data path")
     parser.add_argument("-t", "--threshold", type=float, default=0.01,
                         help="Threshold factor (0 - 1) below which vibration is to to 0")
-    parser.add_argument("-s", "--sensivity", type=float, default=0.3,
-                        help="Sensivity factor (0 - 1) to process vibration data")
+    parser.add_argument("-s", "--sensibility", type=float, default=0.3,
+                        help="sensibility factor (0 - 1) to process vibration data")
     parser.add_argument("-c", "--contrast", type=float, default=(1 / 3.),
                         help=":Contrast factor (0 - 1) for vibration metric")
     parser.add_argument("-o", "--outpath", type=Path, default=None,

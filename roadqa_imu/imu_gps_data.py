@@ -83,16 +83,24 @@ class ImuGpsData:
         self._valid_gps = [index for (index, valid_value) in enumerate(valid) if valid_value]
 
     def _find_common_time_axis(self, interpolation_period_ms: int = 10) -> None:
+        """Find the overlaping time between IMU and GPS
+
+        Args:
+            interpolation_period_ms (int, optional): Sampling period of the new time axis.
+            Defaults to 10.
+        """
         ms_count_gps = np.uint64([gps.ms_count for gps in self._raw_gps])[self._valid_gps]
         ms_count_imu = np.uint64([imu.ms_count for imu in self._raw_imu])
         
-        # Finding overlap ms_count between gps and imu
+        # Finding overlap ms_count between goptionalps and imu
         min_common_time = max([ms_count_gps.min(), ms_count_imu.min()])
         max_common_time = min([ms_count_gps.max(), ms_count_imu.max()])
         
         self.ms_count = np.arange(min_common_time, max_common_time, interpolation_period_ms)
         
     def _process_imu(self) -> None:
+        """Process IMU data
+        """
         self.acceleration = []
         ms_count_imu = np.uint64([imu.ms_count for imu in self._raw_imu])
         acceleration_data = np.float32([[imu.acc_x, imu.acc_y, imu.acc_z] for imu in self._raw_imu])
@@ -102,6 +110,8 @@ class ImuGpsData:
         self.acceleration = np.float32(self.acceleration)
     
     def _process_gps(self) -> None:
+        """Process GPS data
+        """
         self.coord = []
         ms_count_gps = np.uint64([gps.ms_count for gps in self._raw_gps])[self._valid_gps]
         gps_data = np.float32([[gps.latitude, gps.longitude] for gps in self._raw_gps])

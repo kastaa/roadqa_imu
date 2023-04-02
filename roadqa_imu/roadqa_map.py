@@ -45,7 +45,7 @@ class RoadQAMap:
             color_dict[i] = rgb2hex(rgba)
         return color_dict
         
-    def process_vibration(self, threshold: float = 0.01, sensibility: float = 0.4, 
+    def process_vibration(self, threshold: float = 0.01, sensibility: float = 0.3,
                           contrast: float = (1 / 3.)) -> None:
         """Process IMU data to generate a estimate a quality estimation of the road 
 
