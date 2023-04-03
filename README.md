@@ -41,6 +41,9 @@ All the libraries below can be found in the library manager of Arduino except MP
 - SD
 - [MPU9255](https://github.com/Bill2462/MPU9255-Arduino-Library)
 
+## CAD
+CAD file for the holder used to hold the IMU device in the cup holder. 
+
 ## Process data
 Once you have saved `DATA_##.txt` files you can process those using this python package.
 
