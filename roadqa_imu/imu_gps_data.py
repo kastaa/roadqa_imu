@@ -114,7 +114,7 @@ class ImuGpsData:
         """
         self.coord = []
         ms_count_gps = np.uint64([gps.ms_count for gps in self._raw_gps])[self._valid_gps]
-        gps_data = np.float32([[gps.latitude, gps.longitude] for gps in self._raw_gps])
+        gps_data = np.float32([[gps.latitude, gps.longitude] for gps in self._raw_gps])[self._valid_gps]
         for gps_component in gps_data.T:
             gps_component_interpolate = interpolate_data(ms_count_gps, gps_component, self.ms_count)
             self.coord.append(gps_component_interpolate)
