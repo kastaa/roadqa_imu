@@ -1,6 +1,16 @@
 # roadqa_imu
 road quality assessment using an IMU device
 
+## Goal
+The goal of this project is show the potential to measure road quality using a simple IMU device.
+
+The figure 1 depicts a driving path in dark blue. The driving path turn respectively to green, yellow and red as the road quality get worst. For comparison, three segments are compared with the google view result. The date of acquisition are indicated on the road quality map and each google view images.
+
+![Figure 1](./image/map_overlay.png)
+**Figure 1** : Road quality map
+
+More details of this project are available on my hackaday [page](https://hackaday.io/project/189631-road-quality-assessment-with-imu-device).
+
 ## Measuring device
 This section contains all the required information to build the measuring device.
 
@@ -16,9 +26,9 @@ This section contains all the required information to build the measuring device
 - External battery (with USB connection)
 
 ### Assembly
-Figure 1 below depicts a picture of the assembly of the measuring device.
-![Figure 1](./image/v2_electronique_design.png)
-**Figure 1** : Schema of the measuring device assembly
+Figure 2 below depicts a picture of the assembly of the measuring device.
+![Figure 2](./image/v2_electronique_design.png)
+**Figure 2** : Schema of the measuring device assembly
 
 - Connect the Arduino to an external battery using the USB port.
 - If there is an error during the initialization the red Led will light up.
@@ -60,7 +70,4 @@ Then run the entry point with the path to your captured data as an argument:
 roadqa_process <path-to-data>
 ```
 
-There is a sample data file available `sample` folder.
-
-## Additionnal details
-More details of this project are available on my hackaday page.
+There is a sample data file available `sample` folder. Using the default value you should get the same map as depicted in figure 1.
